@@ -1,43 +1,82 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="keywords" content="intersys, web, hosting, hospedaje, cloud" />
-        <meta name="description" content="Hospedaje web" />
-        <title>Intersys</title>
-        
-        <!-- Our CSS stylesheet file -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" />
-        <link rel="stylesheet" href="assets/css/styles.css" />
-        <link rel="stylesheet" href="assets/countdown/jquery.countdown.css" />
-        
-        <!--[if lt IE 9]>
-          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-    </head>
-    
-    <body>
-		<p id="nombre">Intersys</p>
-		<div id="countdown"></div>
-		<p id="note"></p>
-
-        
-        
-        <!-- JavaScript includes -->
-		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<script src="assets/countdown/jquery.countdown.js"></script>
-		<script src="assets/js/script.js"></script>
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Intersys Computer</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Intersys Computer, Hospedaje web, servidores, cloud">
+		<meta name="author" content="Intersys">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/m-styles.min.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
+		<link rel="image_src" href="thumbnail.png">
+		<link rel="icon" type="image/ico" href="favicon.ico">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="span12 fadeInUp animated delay1 divide">
+				    <h2>Intersys</h2>
+					<h1>Iniciamos en:</h1>
+				</div>
+				<div id="countdown" class="span9 fadeInUp animated delay2">
+				</div>
+				<div class="span12 fadeInUp animated delay3 divide">
+	<!--paste in your mailchimp link-->
+					<div id="mc_embed_signup">
+						<form action="http://intersys.us2.list-manage.com/subscribe/post?u=5b0054d2ab197544186fe2b33&amp;id=0939a508e5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank">	
+							<input type="email" value="" name="EMAIL" class="span5 input-large email" id="mce-EMAIL" placeholder="correo electronico" required="">
+						<input type="submit" value="Suscribir" name="subscribe" id="mc-embedded-subscribe" class="span3 m-btn blue">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!--latest jQuery-->
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<!--main bootstrap js-->
+		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<!--countdown-->
+		<script src="js/jquery.countdown.min.js"></script>
 		<script type="text/javascript">
-                    var _gaq = _gaq || [];
-                    _gaq.push(['_setAccount', 'UA-23840116-1']);
-                    _gaq.push(['_trackPageview']);
-                    (function() {
-                        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-                    })();
-                </script>
+		$(function () {
+			var austDay = new Date();
+			// Add to first number to add year, add to second number to add months
+			// and add to last number for day but in negative counting from 1st in next month.
+			austDay = new Date(austDay.getFullYear() + 1, 1-10, - 19);
+			$('#countdown').countdown({until: austDay});
+			$('#year').text(austDay.getFullYear());
+		});
+		</script>
+	<!--animated background-->
+		<script type="text/javascript">
+		// speed in milliseconds, lower = faster
+		var scrollSpeed = 90;
+		// set the default position
+		var current = 0;
+		// set the direction, direction can be either "v", "h" (vertical or horizontal)
+		var direction = 'v';
+		function bgscroll(){
+		// 1 pixel row at a time, change to -1 for other direction
+		current -= 1;
+		// set div
+		$('body').css("backgroundPosition", (direction == 'h') ? current+"px 0" : "0 " + current+"px");
+		}
+		setInterval("bgscroll()", scrollSpeed);
+		</script>
+	<!--google analytics-->
+		<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-23840116-1']);
+		_gaq.push(['_trackPageview']);
 
-    </body>
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		</script>
+	</body>
 </html>
-
