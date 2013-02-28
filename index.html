@@ -45,7 +45,7 @@
 			var austDay = new Date();
 			// Add to first number to add year, add to second number to add months
 			// and add to last number for day but in negative counting from 1st in next month.
-			austDay = new Date(austDay.getFullYear() + 1, 1-10, - 19);
+			austDay = new Date(austDay.getFullYear() + 1, 1-10, - 5);
 			$('#countdown').countdown({until: austDay});
 			$('#year').text(austDay.getFullYear());
 		});
