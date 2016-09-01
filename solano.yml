@@ -1,0 +1,8 @@
+# Solano Labs example Github Android App
+
+hooks:
+    pre_setup: export JEAN="JEAN"
+
+tests:
+    - ls -la
+    - export
