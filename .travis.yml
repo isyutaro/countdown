@@ -1,0 +1,21 @@
+language: python
+python:
+  - "3.5"
+cache: pip
+install:
+  # Install any dependencies required for building your site here.
+  # `awscli` is required for invalidation of CloudFront distributions.
+  - pip install awscli
+
+jobs:
+  includes:
+    - stage: dev
+      script:
+        # Build your site (e.g., HTML, CSS, JS) here.
+        - zip -1ry --exclude=".git/*" "travis-test.zip" .
+        - aws s3 cp clickbus-corporativo.zip s3://$AWS_S3_BUCKET_NAME/bitbucket_src/jean/travis-test.zip
+        on: dev*
+    - stage: staging
+      script:
+        - ls -la
+       on: staging*
